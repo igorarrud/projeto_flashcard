@@ -11,13 +11,18 @@ class baralho_repository():
                        categoria=row[2],
                        ativo=row[3])
 
+    def criarBaralho(self, nome_baralho, categoria):
+        with get_cursor() as cursor:
+            cursor.execute(
+                "INSERT INTO baralhos (id_usuario, nome_baralho, categoria) VALUES (%s, %s,%s)",
+                (self.id, nome_baralho, categoria)
+            )
 
-    # passar lembrete para o usuário lembrar que apesar de poder adicionar qualquer cartao, lembrar de manter cartoes separados por categoria para não ficar bagunçado
     def adicionarFlashcard(self, id_baralho, id_flashcard):
         ...
 
     def removerFlashcard(self, id_baralho, id_flashcard):
-        pass
+        ...
 
     def buscar_baralho(self, id_baralho):
         with get_cursor() as cursor:

@@ -1,10 +1,6 @@
 from database.database import get_cursor
 from models.estatistica import estatistica
 
-"""
-tem que criar os métodos que o service está utilizando
-"""
-
 class estatistica_repository():
     def __init__(self, conexao):
         self.conn = conexao
@@ -21,9 +17,6 @@ class estatistica_repository():
                            ultima_revisao=row[8],
                            ultima_resposta=row[9])
 
-
-    # deve ser definido que um flashcard não pode fazer parte de mais um baralho, já é um regra de negócio que não pode haver flashcards duplicados,
-    # portanto, o método abaixo quebraria se um flashcard fosse membro de mais de um baralho, fazer validação para impedir isso
     def buscar_estatistica(self, id_usuario, id_flashcard, id_baralho):
         with get_cursor() as cursor:
             cursor.execute(
@@ -58,7 +51,6 @@ class estatistica_repository():
             
             rows = cursor.fetchall()
 
-            # Lista de tuplas
             return [self.converter_tuplas_em_entidades(row) for row in rows] if rows else None
         
     # esse método seleciona os flashcards ativos, ele une a tabela estatisticas e baralho para retornar apenas as estatísticas de flashcards que pertencem a baralhos ativos

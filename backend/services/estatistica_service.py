@@ -7,9 +7,6 @@ class estatistica_service():
         self.baralho_repo = baralho_repo
 
     def registrar_resposta(self, id_usuario, id_flashcard, id_baralho, resposta):
-        '''
-        estat é uma instância do model estatistica, o método buscar retorna um model estatistica, o model utiliza do service e o service usa o repositório para a lógica ser feita
-        '''
         estat = self.repo.buscar_estatistica(id_usuario, id_flashcard, id_baralho)
 
         # método preventivo, provavelmente, nunca vai acontecer essa situação, pois ao usuário adicionar o baralho em sua biblioteca, as estatísticas já serão criadas
@@ -36,12 +33,6 @@ class estatistica_service():
 
         self.repo.salvar_estatistica(estat)
 
-
-    """
-    criei dois métodos de criar estatística, um para o service, pois é necessário validação (repositório não pode fazer isso) e um para o repositório
-    o do service verificar se existe, se existe retorna um erro, se não chama o criar do repositório para criar
-    o criar do repositório apenas executa, ele cria sem lógica alguma
-    """
     def criar_estatistica_service(self, id_usuario, id_flashcard, id_baralho):
         existe = self.repo.buscar_estatistica(id_usuario, id_flashcard, id_baralho)
 
@@ -75,7 +66,6 @@ class estatistica_service():
 
         return estatisticas
 
-    # três validações, verificar se o flashcard existe, verificar se o baralho a qual ele pertence está ativo e se há estatísticas para ele
     def retornar_estatistica_flashcard_em_entidade(self, id_usuario):
         estat = self.repo.buscar_estatistica_flashcard(id_usuario)
 
@@ -84,7 +74,5 @@ class estatistica_service():
 
         return estat
 
-    # buscar_estatisticas_baralho faz algo similar, a ideia desse era dar uma visão mais geral do baralho, quantidade de flashcards dominados, quantidades de vezes que praticou
-    # implementar se der tempo
     def avaliarDesempenhoBaralho(self, id_baralho):
         pass

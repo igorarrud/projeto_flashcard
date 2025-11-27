@@ -14,6 +14,8 @@ class baralho_service():
 
         self.repo.desativar_baralho_repo(id_baralho)
 
+   
+
     def editar_baralho(self, id_usuario, id_baralho, acao, dados):
         baralho = self.repo.buscar_baralho(id_usuario, id_baralho)
 
@@ -31,8 +33,3 @@ class baralho_service():
         
         else:
             raise ValueError("Ação inválida")
-
-
-# validar se o baralho existe
-# verificar se o flashcard que estou adicionando existe
-# seria interessante uma mensagem para mostrar que o flashcard que o usuario está adicionando não pertence a categoria do baralho
