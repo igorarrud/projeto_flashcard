@@ -1,0 +1,17 @@
+para explicar rapidamente para quem não entende de arquitetura de software
+
+utilizei uma arquitetura chamada "clean architechture", ela segue a regra de que cada elemento de sua arquitetura deve ter apenas uma função
+
+backend é backend mesmo
+frontend é frontend mesmo
+
+as funções das subpastas são:
+    models: entidades, as classes padrões, representações das estruturas de dados;
+    repositories: classes das models que carregam os métodos que interagem com o banco de dado;
+    services: classes que carregam as regras de negócio e lógica das models e do projeto em si;
+    src: main;
+    database: essa é alto explicativa.
+
+
+Não utilizei ORM, tem somente SQL puro no projeto
+Não utilizei DTOs também, os controllers estão chamando as próprias entidades.

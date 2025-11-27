@@ -1,0 +1,4 @@
+1. algoritmo para montar sequência de flashcards ao praticar
+2. metodos para editar baralho, adicionar flashcard em um baralho, editar um flashcard, excluir um flashcard
+3. algoritmo SRS
+4. falta criar duas divisões para praticar um baralho, uma para praticar o que já conhece e outra para praticar o que viu recentemente e o que ainda não viu (aprender)
